@@ -1,0 +1,35 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Hotlanex Devlog'
+theme = "PaperMod"
+relativeURLs = true
+canonifyURLs = false
+
+[params]
+  robots = "noindex, nofollow"
+  mainSections = ["posts"]
+
+  defaultTheme = "light"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+
+[params.homeInfoParams]
+  Title = "Hotlanex Devlog"
+  Content = "Building games, experimenting with AI, and documenting everything 🚀"
+
+[menu]
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Devlogs"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "archives"
+  name = "Archive"
+  url = "/archives/"
+  weight = 20

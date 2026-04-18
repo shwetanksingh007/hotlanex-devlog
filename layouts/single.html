@@ -1,0 +1,41 @@
+{{ define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <hr>
+
+  <h2>🔗 Devlogs</h2>
+
+{{ $project := .File.BaseFileName }}
+{{ $pages := where site.RegularPages "Params.project" $project }}
+
+<div class="devlog-grid">
+  {{ range sort $pages "Date" "desc" }}
+    <div class="devlog-card">
+      <a href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+      </a>
+
+      <p class="devlog-date">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </p>
+
+      {{ with .Params.description }}
+        <p class="devlog-desc">{{ . }}</p>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p>No devlogs yet.</p>
+  {{ end }}
+</div>
+
+</article>
+
+{{ end }}
